@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Panico Formazione Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 15px;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+        }
+
+        header img {
+            max-width: 280px;
+            width: 80%;
+        }
+
+        h1 {
+            color: #e60000;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .slider {
+            max-width: 900px;
+            margin: 30px auto;
+            overflow: hidden;
+            border: 2px solid #e60000;
+            border-radius: 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 35px 30px;
+            background-color: #111;
+        }
+
+        .slide h2 {
+            color: #e60000;
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        .slide p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .controls button {
+            background-color: #e60000;
+            border: none;
+            color: #fff;
+            padding: 12px 18px;
+            margin: 0 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+
+        .controls button:hover {
+            background-color: #ff1a1a;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 30px 15px;
+            background-color: #111;
+            text-align: center;
+            border-top: 2px solid #e60000;
+        }
+
+        footer h3 {
+            color: #e60000;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            word-break: break-all;
+        }
+
+        footer a:hover {
+            color: #e60000;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .slide {
+                padding: 25px 20px;
+            }
+
+            .slide h2 {
+                font-size: 22px;
+            }
+
+            .slide p {
+                font-size: 16px;
+            }
+
+            .controls button {
+                padding: 10px 14px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Panico Formazione Academy">
+    <h1>Panico Formazione Academy</h1>
+</header>
+
+<section class="slider">
+    <div class="slides" id="slides">
+
+        <div class="slide">
+            <h2>Programmazione CNC</h2>
+            <p>
+                Imparerai la programmazione CNC partendo dalle basi fino
+                alla scrittura completa dei programmi.
+                Studieremo codici G e M, cicli di lavoro e ottimizzazione
+                dei processi su macchine utensili CNC.
+            </p>
+        </div>
+
+        <div class="slide">
+            <h2>CAD CAM & Disegno Tecnico</h2>
+            <p>
+                Corso dedicato alla progettazione CAD CAM e al disegno tecnico.
+                Dalla lettura del disegno meccanico alla modellazione 3D,
+                fino alla creazione del programma CNC pronto per la macchina.
+            </p>
+        </div>
+
+        <div class="slide">
+            <h2>Corso Base CNC</h2>
+            <p>
+                Ideale per chi parte da zero.
+                Introduzione alle macchine CNC, utensili,
+                lavorazioni principali e concetti fondamentali
+                della meccanica industriale.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<div class="controls">
+    <button onclick="prevSlide()">◀</button>
+    <button onclick="nextSlide()">▶</button>
+</div>
+
+<footer>
+    <h3>Contatti</h3>
+    <p>
+        Email:
+        <a href="mailto:panico.formazione.academy@gmail.com">
+            panico.formazione.academy@gmail.com
+        </a>
+    </p>
+</footer>
+
+<script>
+    let index = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    function showSlide(i) {
+        index = (i + totalSlides) % totalSlides;
+        slides.style.transform = "translateX(" + (-index * 100) + "%)";
+    }
+
+    function nextSlide() {
+        showSlide(index + 1);
+    }
+
+    function prevSlide() {
+        showSlide(index - 1);
+    }
+</script>
+
+</body>
+</html>
